@@ -17,12 +17,16 @@ searchInputEl.addEventListener('blur', function () {
 });
 
 const badgeEl = document.querySelector('header .badges');   
+const toTopEl = document.querySelector('#to-top');
 
 window.addEventListener('scroll', _.throttle(function () {
   if(window.scrollY > 500){
     gsap.to(badgeEl, .6, {
       opacity: 0,
       display: 'none'
+    });
+    gsap.to(toTopEl,.2, {
+      x: 0,
     });
 
   } else{
@@ -31,9 +35,18 @@ window.addEventListener('scroll', _.throttle(function () {
       opacity: 1,
       display: 'block'
     });
-
+    gsap.to( toTopEl,.2, {
+      x: 100,
+    });
   }
 }, 300));
+
+
+toTopEl.addEventListener('click', function () {
+  gsap.to(window, .7, {
+    scrollTo: 0,
+  });
+})
 
 
 const fadeEls = document.querySelectorAll('.visual .fade-in');
