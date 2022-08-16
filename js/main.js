@@ -22,7 +22,7 @@ window.addEventListener('scroll', _.throttle(function () {
     });
   }
 }, 300));
-
+//gsap.to (요소, 시간, {속성:값, 속성:값})
 
 toTopEl.addEventListener('click', function () {
   gsap.to(window, .7, {
